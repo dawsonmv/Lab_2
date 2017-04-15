@@ -1,3 +1,11 @@
+/*
+ * Copyright (c) 2017.@author Dawson Valdes
+ * Berkeley City College
+ * CIS 27: Data Structure and Algorithms
+ * Spring 2017
+ *
+ */
+
 //package com.sorts;
 
 
@@ -110,7 +118,6 @@ public class ElementarySorts
             }
             sub /= 3 ;
             print(comp);
-
         }
 
     }
@@ -137,10 +144,7 @@ public class ElementarySorts
 
     private static void merge( Comparable[] a, Comparable[] b, int lo , int mid , int hi)
     {
-        for(int k = lo; k <= hi; k++)
-        {
-            b[k] = a[k];
-        }
+        b = a.clone();
 
         int i = lo;
         int j = mid+1;
@@ -171,7 +175,6 @@ public class ElementarySorts
         }
     }
 
-
     public static void Quicksort(Comparable[] comp)
     {
         StdRandom.shuffle(comp);
@@ -180,14 +183,65 @@ public class ElementarySorts
 
     private static void quick_sort( Comparable[] comp, int lo, int hi)
     {
+        if( hi > lo )
+        {
+            int j;
+            j = partition(comp, lo, hi);
+
+            quick_sort(comp, lo, j - 1);
+            quick_sort(comp, j + 1, hi);
+        }
+    }
+
+    private static int partition( Comparable[] comp, int lo, int hi) //logical optimizations
+    {
+        boolean done , max_i , min_j , big_i , little_j;
+        Comparable value;
+        int i, j;
+
+        max_i = min_j = big_i = little_j = false;
+        value = comp[lo];
+        i = lo;
+        j = hi;
+
+        do
+        {
+            do
+            {
+                i++;
+                if( !max_i )
+                {
+                    max_i = i == hi;
+                    if( !big_i ) big_i = less_than(comp[i], value);
+                }
+            }
+            while( !(big_i || max_i) );
+
+            do
+            {
+                j--;
+                if( !min_j )
+                {
+                    min_j = j == lo;
+                    if( !little_j ) little_j = less_than( value , comp[j]);
+                }
+            }
+            while( !(little_j || min_j) );
+
+            done = i >= j;
+            if( !done ) swap(comp , i , j);
+        }
+        while(!done);
+
+        swap(comp , lo , j);
+        return j;
 
     }
 
-
-
     private static boolean less_than(Comparable a , Comparable b)
     {
-        return ( a.compareTo(b) < 0 );
+        int c = a.compareTo(b);
+        return c < 0;
     }
 
     private static void swap(Object[] a , int b , int c)
@@ -210,14 +264,7 @@ public class ElementarySorts
     {
         int length = o.length;
         StdOut.println();
-        for ( int i = 0; i < length; i++ )
-        {
-            StdOut.print(o[i]);
-        }
+        for ( Object i:o ) StdOut.print(i);
     }
-
-
-
-
 
 }
