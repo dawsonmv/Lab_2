@@ -31,12 +31,10 @@ public class Main {
         print_list(sll);
         StdOut.println();
 
-        LinkListSorts.NaturalMergeSort(sll);
+        LinkListSorts.NaturalMergeSort( sll );
 
         print_list(sll);
         StdOut.println();
-
-
 
     }
 

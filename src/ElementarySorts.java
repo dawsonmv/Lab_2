@@ -9,7 +9,12 @@
 //package com.sorts;
 
 
-/**
+/**@author Dawson Valdes
+ *
+ * Elementary Sorts
+ * for Arrays of
+ * Comparable Items
+ *
  * Created by dawsonvaldes on 3/25/17.
  */
 

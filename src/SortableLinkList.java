@@ -139,7 +139,7 @@ public class SortableLinkList<ItemType extends Comparable> implements Iterable<I
 		size++; // increments size of data structure
 	}
 		
-	public void add_at_back( ItemType item) // adds a new node to the get_back of the data structure
+	public void add_at_back( ItemType item) // adds a new node to the back of the data structure
 	{
 		//creates new node after tail
 		CmpDblNode<ItemType> new_tail = tail==null ?
@@ -175,9 +175,9 @@ public class SortableLinkList<ItemType extends Comparable> implements Iterable<I
 		
 			head = head.get_next(); // point the head to the get_next head
 			
-			old_head.set_next(null); // set the old head get_next to null to break references
-			old_head.set_item(null); // set the old head get_item to null to break references
-			
+			old_head.set_next(null); // set old_head get_next to null to break references
+			old_head.set_item(null); // set old_head get_item to null to break references
+			head.set_back(null); // set head back to null to remove reference to old_head
 			size--; // decrement data structure size
 			
 			return front_item; // return the front get_item
@@ -197,9 +197,9 @@ public class SortableLinkList<ItemType extends Comparable> implements Iterable<I
 			
 			tail = tail.get_back(); // point the tail to the previous get_item
 			
-			old_tail.set_back(null); // set the old tail to null to break reference
-			old_tail.set_item(null); // set the old tail get_item to null to reference
-			
+			old_tail.set_back(null); // set the old_tail to null to break reference
+			old_tail.set_item(null); // set the old_tail get_item to null to reference
+			tail.set_next(null); // set tail next to null to remove reference to old_tail
 			size--; // decrement the data structure size
 			
 			return back_item; // return the get_back get_item

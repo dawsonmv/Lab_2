@@ -14,57 +14,66 @@
  *
  * Created by dawsonvaldes on 4/13/17.
  *
- * Natural-Merge-Sort algorithm
+ * Natural-Merge-Sort
+ * algorithm for Linked Lists
  * based on
- * Magnetic-Tape-Merge sorting algorithm *
+ * Magnetic-Tape-Merge
+ * sorting algorithm for magnetic tape storage
  *
  */
 
 
-
-public  class LinkListSorts
+public class LinkListSorts
 {
-    private void LinkListSorts(){}
+    private LinkListSorts(){}
 
     public static void NaturalMergeSort(SortableLinkList a)
     {
         if( !a.is_sorted() )
         {
+            StdOut.println(" ..... Sorting.....");
             a = nm_sort(a);
         }
     }
 
-    private static SortableLinkList nm_sort(SortableLinkList a)
+    private static SortableLinkList<Comparable> nm_sort(SortableLinkList<Comparable> a)
     {
 
-        SortableLinkList sorted_list, scratch_a, scratch_b;
+        SortableLinkList<Comparable> sorted_list, scratch_a, scratch_b;
 
-        sorted_list = new SortableLinkList();
-        scratch_a = new SortableLinkList();
-        scratch_b = new SortableLinkList();
+        sorted_list = new SortableLinkList<Comparable>();
+        scratch_a = new SortableLinkList<Comparable>();
+        scratch_b = new SortableLinkList<Comparable>();
 
         while( !a.is_empty() )
         {
+            StdOut.println("Outer Loop");
             while( !a.is_empty() )
             {
+                StdOut.println("Inner Loop A");
                 nm_merge( a, sorted_list, scratch_a );
                 nm_merge( a, sorted_list, scratch_b );
             }
 
             while ( !scratch_a.is_empty() || !scratch_b.is_empty() )
             {
+                StdOut.println("Inner Loop B");
                 nm_merge( scratch_a, scratch_b, sorted_list );
                 nm_merge( scratch_a, scratch_b, sorted_list );
             }
 
         }
 
+        StdOut.println(" ..... Exiting Sort ..... ");
         return sorted_list;
 
     }
 
-    private static void nm_merge(SortableLinkList left, SortableLinkList right, SortableLinkList merged_list)
+    private static void nm_merge(SortableLinkList<Comparable> left,
+                                 SortableLinkList<Comparable> right,
+                                 SortableLinkList<Comparable> merged_list)
     {
+        StdOut.println("Inititiating Merge .. ");
         Comparable left_item, left_item_next, right_item, right_item_next;
         left_item = left.get_from_front();
         left_item_next = left.get_from_front();
@@ -74,44 +83,47 @@ public  class LinkListSorts
         {
             if ( Comparison.is_less_than(left_item, right_item) || Comparison.is_equal_to(left_item, right_item) )
             {
+                StdOut.println(" . merge left . . ");
                 merged_list.add_at_back(left_item);
                 left_item = left_item_next;
                 left_item_next = left.get_from_front();
             }
             else
             {
+                StdOut.println(" . . merge right . ");
                 merged_list.add_at_back(right_item);
                 right_item = right_item_next;
                 right_item_next = right.get_from_front();
             }
+            StdOut.println(" . Do Complete .");
         }
         while ( Comparison.is_less_than(left_item, left_item_next)
                         &&
                         Comparison.is_less_than(right_item, right_item_next)
                 );
 
-        if ( Comparison.is_less_than(left_item, left_item_next) )
+
+        nm_merge_sub_m(left_item, left_item_next, merged_list, left);
+        nm_merge_sub_m(right_item, right_item_next, merged_list, right);
+
+    }
+
+    private static void nm_merge_sub_m( Comparable a , Comparable b ,
+                                        SortableLinkList<Comparable> m,
+                                        SortableLinkList<Comparable> s )
+    {
+        s.add_at_front(b);
+        if( Comparison.is_less_than(a,b) )
         {
-            merged_list.add_at_back(left_item);
-            left.add_at_front(left_item_next);
+            StdOut.println(" Sub-merge merge");
+            m.add_at_back(a);
         }
         else
         {
-            left.add_at_front(left_item_next);
-            left.add_at_front(left_item);
-        }
-        if ( Comparison.is_less_than(right_item, right_item_next) )
-        {
-            merged_list.add_at_back(right_item);
-            right.add_at_front(right_item_next);
-        }
-        else
-        {
-            right.add_at_front(right_item_next);
-            right.add_at_front(right_item);
+            StdOut.println(" Sub-merge sort");
+            s.add_at_front(a);
         }
 
-        return;
     }
 
 }
