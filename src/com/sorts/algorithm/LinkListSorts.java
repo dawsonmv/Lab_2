@@ -73,7 +73,7 @@ public class LinkListSorts
                                  SortableLinkList<Comparable> right,
                                  SortableLinkList<Comparable> merged_list)
     {
-        //StdOut.println("Inititiating Merge .. ");
+        //StdOut.println("Initiating Merge .. ");
         Comparable left_item, left_item_next, right_item, right_item_next;
         left_item = left.get_from_front();
         left_item_next = left.get_from_front();

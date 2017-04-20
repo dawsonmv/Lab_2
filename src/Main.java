@@ -14,13 +14,12 @@ public class Main {
 
     public static void main(String[] args)
     {
-        String[] elementary_sorts;
-        elementary_sorts = new String[]{"I", "L", "O", "V", "E", "A", "L", "G", "O", "R", "I", "T", "H", "M", "S"};
-        String[] shell_sort;
-        shell_sort
-                = new String[]{"E", "A", "S", "Y", "S", "H", "E", "L", "L", "S", "O", "R", "T", "Q", "U", "E", "S", "T", "I", "O", "N"};
+        String[] elementary_sorts = new String[]
+                                            {"I", "L", "O", "V", "E", "A", "L", "G", "O", "R", "I", "T", "H", "M", "S"};
 
-        /* com.sorts.algorithm.ElementarySorts.ShellSort(shell_sort); */
+        String[] shell_sort = new String[]
+                                      {"E", "A", "S", "Y", "S", "H", "E", "L", "L", "S", "O", "R", "T", "Q", "U", "E", "S", "T", "I", "O", "N"};
+
 
         SortableLinkList<Comparable> sll;
         sll = new SortableLinkList<>();
@@ -44,7 +43,8 @@ public class Main {
 
     }
 
-    private static void print_list(SortableLinkList l){
+    private static void print_list(SortableLinkList l)
+    {
         for(Object o : l)
         {
             StdOut.print(o);

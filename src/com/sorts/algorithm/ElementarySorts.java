@@ -1,10 +1,4 @@
-package com.sorts.algorithm;/*
- * Copyright (c) 2017.@author Dawson Valdes
- * Berkeley City College
- * CIS 27: Data Structure and Algorithms
- * Spring 2017
- *
- */
+package com.sorts.algorithm;
 
 /*
  * Copyright (c) 2017.@author Dawson Valdes
@@ -13,9 +7,6 @@ package com.sorts.algorithm;/*
  * Spring 2017
  *
  */
-
-//package com.sorts;
-
 
 /**@author Dawson Valdes
  *
@@ -46,7 +37,7 @@ public class ElementarySorts
             // set current index to smallest index of the array
             small = i;
 
-            // find the smallest by interating over the remainder of the array
+            // find the smallest by iterating over the remainder of the array
             for ( int j = i + 1; j < len; j++ )
             {
                 // if the the contents are smaller than the small make that the new small index
@@ -60,7 +51,7 @@ public class ElementarySorts
                 swap(comp, i , small);
             }
 
-            // print(comp);
+            //  print(comp);
 
         }
 
@@ -71,7 +62,7 @@ public class ElementarySorts
         // store length for reduced access
         int len = comp.length;
 
-        // begin sorting at index 0 , incresing in order
+        // begin sorting at index 0 , increasing in order
         for( int i = 0; i < len; i++ )
         {
 
@@ -186,7 +177,7 @@ public class ElementarySorts
         }
     }
 
-    public static void Quicksort(Comparable[] comp)
+    public static void QuickSort(Comparable[] comp)
     {
         //StdRandom.shuffle(comp);
         quick_sort(comp, 0, comp.length -1);
@@ -272,13 +263,21 @@ public class ElementarySorts
         return true;
     }
 
-    /**
-     private static void print( Object[] o )
-     {
-     int length = o.length;
-     StdOut.println();
-     for ( Object i:o ) StdOut.print(i);
-     }
-     */
+/*
+
+private static void print( Object[] o )
+{
+OutputStream os = new OutputStream() {
+@Override
+public void write(int b) throws IOException
+{
+
+}
+}
+int length = o.length;
+StdOut.println();
+for ( Object i:o ) StdOut.print(i);
+}
+*/
 
 }
