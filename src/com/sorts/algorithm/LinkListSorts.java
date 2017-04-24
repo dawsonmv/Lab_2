@@ -47,7 +47,7 @@ public class LinkListSorts
 
         while ( a.not_empty() )
         {
-            //      StdOut.println("Outer Loop");
+            //       StdOut.println("Outer Loop");
             while ( a.not_empty() )
             {
                 //            StdOut.println("Inner Loop A");
@@ -80,20 +80,19 @@ public class LinkListSorts
         right_item = right.get_from_front();
         right_item_next = right.get_from_front();
 
-
         do
         {
             if ( Comparison.is_less_than(left_item, right_item) || Comparison.is_equal_to(left_item, right_item) )
             {
                 //StdOut.println(" . merge left . . ");
-                merged_list.add_at_back(left_item);
+                merged_list.add_at_front(left_item);
                 left_item = left_item_next;
                 left_item_next = left.get_from_front();
             }
             else
             {
                 // StdOut.println(" . . merge right . ");
-                merged_list.add_at_back(right_item);
+                merged_list.add_at_front(right_item);
                 right_item = right_item_next;
                 right_item_next = right.get_from_front();
             }

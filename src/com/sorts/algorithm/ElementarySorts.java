@@ -263,21 +263,62 @@ public class ElementarySorts
         return true;
     }
 
-/*
+    private static Comparable tukeys_ninether(Comparable[] c)
+    {
 
+        int len = c.length;
+        float sample_rate = len / 9;
+
+        Comparable sample[] = new Comparable[9];
+
+        for ( int i = 0; i < 9; i++ )
+        {
+            int index = (int) Math.floor(i * sample_rate);
+            sample[i] = c[index];
+        }
+
+        return median_of_three(median_of_three(sample[0], sample[1], sample[2]),
+                               median_of_three(sample[3], sample[4], sample[5]),
+                               median_of_three(sample[6], sample[7], sample[8]));
+
+    }
+
+    private static Comparable median_of_three(Comparable one, Comparable two, Comparable three)
+    {
+
+        int smallest;
+
+        if ( Comparison.is_less_than(one, two) )
+            smallest = Comparison.is_less_than(one, three) ? 1 : 3;
+        else
+            smallest = Comparison.is_less_than(two, three) ? 2 : 3;
+
+        switch ( smallest )
+        {
+            case 1:
+                return Comparison.is_less_than(two, three) ? two : three;
+
+            case 2:
+                return Comparison.is_less_than(one, three) ? one : three;
+
+            case 3:
+                return Comparison.is_less_than(one, two) ? one : two;
+
+            default:
+                return null;
+        }
+
+    }
+
+
+    /**
 private static void print( Object[] o )
 {
-OutputStream os = new OutputStream() {
-@Override
-public void write(int b) throws IOException
-{
 
-}
-}
-int length = o.length;
-StdOut.println();
+     StdOut.println();
 for ( Object i:o ) StdOut.print(i);
-}
+
+     }
 */
 
 }

@@ -32,11 +32,11 @@ import com.sorts.algorithm.Comparison;
 public class SortableLinkList<ItemType extends Comparable> extends Deque<ItemType>
 {
 
-
 	private boolean sorted;
 
 	public SortableLinkList()
 	{
+
 		super();
 		sorted = false;
 	}
@@ -49,13 +49,17 @@ public class SortableLinkList<ItemType extends Comparable> extends Deque<ItemTyp
 			if ( not_empty() )
 			{
 				ItemType a, b;
-				sorted = true;
+                DoubleNode c;
+                sorted = true;
 
 				b = null;
-				for ( ItemType it : this )
-				{
-					a = b;
-					b = it;
+                c = head();
+                while ( sorted && c != null )
+                {
+
+                    a = b;
+                    b = c.item();
+                    c = c.next();
 
 					if ( a != null )
 					{

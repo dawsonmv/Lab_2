@@ -14,11 +14,10 @@ public class Main {
 
     public static void main(String[] args)
     {
-        String[] elementary_sorts = new String[]
-                                            {"I", "L", "O", "V", "E", "A", "L", "G", "O", "R", "I", "T", "H", "M", "S"};
+        String[] elementary_sorts = {"I", "L", "O", "V", "E", "A", "L", "G", "O", "R", "I", "T", "H", "M", "S"};
 
-        String[] shell_sort = new String[]
-                                      {"E", "A", "S", "Y", "S", "H", "E", "L", "L", "S", "O", "R", "T", "Q", "U", "E", "S", "T", "I", "O", "N"};
+        String[] shell_sort =
+                {"E", "A", "S", "Y", "S", "H", "E", "L", "L", "S", "O", "R", "T", "Q", "U", "E", "S", "T", "I", "O", "N"};
 
 
         SortableLinkList<Comparable> sll;
@@ -31,7 +30,7 @@ public class Main {
         StdOut.println();
 
         for( String s : shell_sort )
-            sll.add_at_front(s);
+            sll.add_at_back(s);
 
         print_list(sll);
         StdOut.println();
