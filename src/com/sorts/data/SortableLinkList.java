@@ -36,7 +36,6 @@ public class SortableLinkList<ItemType extends Comparable> extends Deque<ItemTyp
 
 	public SortableLinkList()
 	{
-
 		super();
 		sorted = false;
 	}

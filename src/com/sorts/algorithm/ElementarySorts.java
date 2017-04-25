@@ -1,13 +1,5 @@
 package com.sorts.algorithm;
 
-/*
- * Copyright (c) 2017.@author Dawson Valdes
- * Berkeley City College
- * CIS 27: Data Structure and Algorithms
- * Spring 2017
- *
- */
-
 /**@author Dawson Valdes
  *
  * Elementary Sorts
@@ -15,6 +7,17 @@ package com.sorts.algorithm;
  * Comparable Items
  *
  * Created by dawsonvaldes on 3/25/17.
+ */
+
+import edu.princeton.cs.algs4.StdOut;
+import edu.princeton.cs.algs4.StdRandom;
+
+/*
+ * Copyright (c) 2017.@author Dawson Valdes
+ * Berkeley City College
+ * CIS 27: Data Structure and Algorithms
+ * Spring 2017
+ *
  */
 
 public class ElementarySorts
@@ -51,7 +54,7 @@ public class ElementarySorts
                 swap(comp, i , small);
             }
 
-            //  print(comp);
+            print(comp);
 
         }
 
@@ -71,7 +74,7 @@ public class ElementarySorts
             {
                 swap(comp , j , j-1 );
             }
-            //  print(comp);
+            print(comp);
         }
 
     }
@@ -94,7 +97,7 @@ public class ElementarySorts
                     if(sorted){sorted = false;}
                 }
             }
-            // print(comp);
+            print(comp);
         }
 
     }
@@ -116,10 +119,10 @@ public class ElementarySorts
                     swap(comp , j , j-sub);
                     // print(comp);
                 }
-             // print(comp);
+                print(comp);
             }
             sub /= 3 ;
-            // print(comp);
+            print(comp);
         }
 
     }
@@ -179,8 +182,9 @@ public class ElementarySorts
 
     public static void QuickSort(Comparable[] comp)
     {
-        //StdRandom.shuffle(comp);
-        quick_sort(comp, 0, comp.length -1);
+        int len = comp.length;
+        StdRandom.shuffle(comp);
+        quick_sort(comp, 0, len - 1);
     }
 
     private static void quick_sort( Comparable[] comp, int lo, int hi)
@@ -311,14 +315,14 @@ public class ElementarySorts
     }
 
 
-    /**
 private static void print( Object[] o )
 {
 
      StdOut.println();
 for ( Object i:o ) StdOut.print(i);
 
-     }
-*/
+}
+
+
 
 }

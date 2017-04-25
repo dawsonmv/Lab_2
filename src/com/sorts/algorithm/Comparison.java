@@ -39,11 +39,7 @@ public class Comparison
     @SuppressWarnings("unchecked")
     public static boolean is_less_than(Comparable a , Comparable b)
     {
-        if ( a == null )
-        {
-            return b != null;
-        }
-        else if ( b == null )
+        if ( a == null || b == null )
         {
             return false;
         }
@@ -58,11 +54,7 @@ public class Comparison
     @SuppressWarnings("unchecked")
     public static boolean is_less_than(Object a, Object b)
     {
-        if ( a == null )
-        {
-            return b != null;
-        }
-        else if ( b == null )
+        if ( a == null || b == null )
         {
             return false;
         }
@@ -78,11 +70,11 @@ public class Comparison
     public static boolean is_equal_to(Comparable a , Comparable b)
     {
 
-        if ( a == null )
+        if ( a == null && b == null )
         {
-            return b == null;
+            return true;
         }
-        else if ( b == null )
+        else if ( a == null || b == null )
         {
             return false;
         }
@@ -98,11 +90,11 @@ public class Comparison
     public static boolean is_equal_to(Object a, Object b)
     {
 
-        if ( a == null )
+        if ( null == a && null == b )
         {
-            return b == null;
+            return true;
         }
-        else if ( b == null )
+        else if ( null == a || null == b )
         {
             return false;
         }

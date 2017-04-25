@@ -1,5 +1,6 @@
 import com.sorts.algorithm.LinkListSorts;
 import com.sorts.data.SortableLinkList;
+import edu.princeton.cs.algs4.StdOut;
 
 /*
  * Copyright (c) 2017.@author Dawson Valdes
@@ -14,6 +15,7 @@ public class Main {
 
     public static void main(String[] args)
     {
+
         String[] elementary_sorts = {"I", "L", "O", "V", "E", "A", "L", "G", "O", "R", "I", "T", "H", "M", "S"};
 
         String[] shell_sort =
@@ -46,6 +48,7 @@ public class Main {
     {
         for(Object o : l)
         {
+
             StdOut.print(o);
         }
 
